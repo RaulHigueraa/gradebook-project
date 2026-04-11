@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -std=c11 -Wall -Wextra -Werror
 
-SRC = src/main.c src/student.c src/gradebook.c src/storage.c src/sort.c
+SRC = src/main.c src/student.c src/gradebook.c src/storage.c src/sort.c src/course.c
 OUT = gradebook
 
 all: $(OUT)

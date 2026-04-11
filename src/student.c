@@ -1,11 +1,12 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "student.h"
 
-student createStudent() {
+student addStudent() {
 
     student s;
-    
+
     printf("Creating a new student...\n");
     printf("Enter student name: ");
     scanf("%s", s.name);
@@ -14,7 +15,11 @@ student createStudent() {
 
     printf("How many homework scores? ");
     scanf("%d", &s.homeworkCount);
-    s.hw_scores = (double *)malloc(s.homeworkCount * sizeof(double));
+
+    if (s.homeworkCount > MAX_HW) {
+        printf("Maximum homework scores exceeded. Setting to %d.\n", MAX_HW);
+        s.homeworkCount = MAX_HW;
+    }
 
     for (int i = 0; i < s.homeworkCount; i++) {
         printf("Homework %d: ", i + 1);
@@ -23,15 +28,24 @@ student createStudent() {
 
     printf("How many exam scores? ");
     scanf("%d", &s.examCount);
-    s.exam_scores = (double *)malloc(s.examCount * sizeof(double));
-    for (int i = 0; i < s.examCount; i++) {
+    
+    if (s.examCount > MAX_EXAMS) {
+        printf("Maximum exam scores exceeded. Setting to %d.\n", MAX_EXAMS);
+        s.examCount = MAX_EXAMS;
+    }
+        for (int i = 0; i < s.examCount; i++) {
         printf("Exam %d: ", i + 1);
         scanf("%lf", &s.exam_scores[i]);
     }
 
     printf("How many project scores? ");
     scanf("%d", &s.projectCount);
-    s.project_scores = (double *)malloc(s.projectCount * sizeof(double));
+    
+    if (s.projectCount > MAX_PROJECTS) {
+        printf("Maximum project scores exceeded. Setting to %d.\n", MAX_PROJECTS);
+        s.projectCount = MAX_PROJECTS;
+    }
+
     for (int i = 0; i < s.projectCount; i++) {
         printf("Project %d: ", i + 1);
         scanf("%lf", &s.project_scores[i]);
@@ -39,5 +53,4 @@ student createStudent() {
 
     return s;
 
-    // Code to create a new student would go here
 }
