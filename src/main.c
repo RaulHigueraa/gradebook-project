@@ -3,7 +3,6 @@
 #include "gradebook.h"
 #include "course.h"
 #include "system.h"
-#include <gtk/gtk.h>
 
 
 
