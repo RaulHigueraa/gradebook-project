@@ -35,5 +35,6 @@ student addStudent(void);
 void addExamScore(student *s, double score);
 void addHomeworkScore(student *s);
 void addProjectScore(student *s, double score);
+void listHomeworkScores(student *s);
 
 #endif

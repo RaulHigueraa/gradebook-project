@@ -7,8 +7,7 @@ typedef struct{
     course *courses;
     int courseCount;
     int capacity;
-
-
+    
 }System;
 
 void addCoursetoSystem(System *sys, course c);

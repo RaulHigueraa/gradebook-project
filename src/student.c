@@ -41,6 +41,12 @@ void addHomeworkScore(student *s) {
     }
 }
 
+void listHomeworkScores(student *s){
+    for(int i = 0; i < s->homeworkCount; i++ ){
+        printf("%d: %f\n", i+1, s->hw_scores[i]);
+    }
+}
+
 void addProjectScore(student *s, double score) {
     if (s->projectCount < MAX_PROJECTS) {
         s->project_scores[s->projectCount] = score;

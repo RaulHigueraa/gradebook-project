@@ -51,6 +51,7 @@ int selectCourse(System *sys) {
 }
 
 void systemMenu(System *sys){
+   initSystem(sys);
    int choice; 
 
    do{
@@ -114,13 +115,13 @@ void courseMenu(course *c){
 
                switch(choice){
                   case 1: {
-                     // ADD STUDENT
+                     // ADD STUDENT - INGRID'S PART COMPLETED
                      student newStudent = addStudent();
                      addStudentToGradebook(&c->gradebook, newStudent);
                      break;
                   }
                   case 2: {
-                     // PRINT LIST OF STUDENTS IN COURSE
+                     // PRINT LIST OF STUDENTS IN COURSE 
                      printf("List of students in course:\n");
                      printListofStudentsInCourse(&c->gradebook);
                      break;
@@ -129,13 +130,18 @@ void courseMenu(course *c){
                      // MANAGE GRADEBOOK
                      // - accesses new menu
                      //   -enter homework scores, exam scores, project scores
-                     //   - get avg of 
-                     // Support adding x, finding findStudent(), updating updateStudent()->what field?, deleting-> deleteStudent(), and listing students
+                     //   - get avg of every score (exams, projects, assignments together)
+                     // Support adding x, finding findStudent(), updating 
+                     // updateStudent()->what field?, deleting-> deleteStudent(), and 
+                     // listing students
                      int student_idx = selectStudent(&c->gradebook);
                      if(student_idx >= 0){
                         studentMenu(&c->gradebook.students[student_idx]);
                      }
                      break;
+                   case 4: {
+                        printf("")
+                   }
                   }
                   default:
                      printf("Invalid choice. Please try again.\n");
@@ -160,6 +166,7 @@ void studentMenu(student *s){
         switch(choice){
             case 1: 
                 addHomeworkScore(s);
+                listHomeworkScores(s);
                 break;
             case 2:
                 break;

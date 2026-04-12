@@ -1,17 +1,19 @@
-# DO NOT TOUCH THIS FILE! This is a generated Makefile for the gradebook project. If you need to make changes, please edit the source files and regenerate the Makefile.
 CC = gcc
-CFLAGS = -std=c11 -Wall -Wextra -Werror
+
+CFLAGS = -std=c11 -Wall -Wextra -Werror $(shell pkg-config --cflags gtk+-3.0)
+LDFLAGS = $(shell pkg-config --libs gtk+-3.0)
 
 SRC = src/main.c src/student.c src/gradebook.c src/storage.c src/sort.c src/course.c src/system.c
-OUT = gradebook
 
-all: $(OUT)
+TARGET = gradebook
 
-$(OUT): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(OUT)
+all: $(TARGET)
 
-run: all
-	./$(OUT)
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
+
+run: $(TARGET)
+	./$(TARGET)
 
 clean:
-	rm -f $(OUT)
+	rm -f $(TARGET)
