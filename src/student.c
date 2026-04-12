@@ -3,54 +3,49 @@
 #include <stdlib.h>
 #include "student.h"
 
+
+
 student addStudent() {
 
     student s;
 
     printf("Creating a new student...\n");
     printf("Enter student name: ");
-    scanf("%s", s.name);
+    scanf(" %49[^\n]", s.name);
     printf("Enter student ID number: ");
     scanf("%d", &s.id_number);
 
-    printf("How many homework scores? ");
-    scanf("%d", &s.homeworkCount);
-
-    if (s.homeworkCount > MAX_HW) {
-        printf("Maximum homework scores exceeded. Setting to %d.\n", MAX_HW);
-        s.homeworkCount = MAX_HW;
-    }
-
-    for (int i = 0; i < s.homeworkCount; i++) {
-        printf("Homework %d: ", i + 1);
-        scanf("%lf", &s.hw_scores[i]);
-    }
-
-    printf("How many exam scores? ");
-    scanf("%d", &s.examCount);
-    
-    if (s.examCount > MAX_EXAMS) {
-        printf("Maximum exam scores exceeded. Setting to %d.\n", MAX_EXAMS);
-        s.examCount = MAX_EXAMS;
-    }
-        for (int i = 0; i < s.examCount; i++) {
-        printf("Exam %d: ", i + 1);
-        scanf("%lf", &s.exam_scores[i]);
-    }
-
-    printf("How many project scores? ");
-    scanf("%d", &s.projectCount);
-    
-    if (s.projectCount > MAX_PROJECTS) {
-        printf("Maximum project scores exceeded. Setting to %d.\n", MAX_PROJECTS);
-        s.projectCount = MAX_PROJECTS;
-    }
-
-    for (int i = 0; i < s.projectCount; i++) {
-        printf("Project %d: ", i + 1);
-        scanf("%lf", &s.project_scores[i]);
-    }
 
     return s;
 
+}
+
+void addExamScore(student *s, double score) {
+    if (s->examCount < MAX_EXAMS) {
+        s->exam_scores[s->examCount] = score;
+        s->examCount++;
+    } else {
+        printf("Cannot add more exam scores. Maximum reached.\n");
+    }
+}
+
+void addHomeworkScore(student *s) {
+    if (s->homeworkCount < MAX_HW) {
+        double score; 
+        printf("Enter homework score: ");
+        scanf("%lf", &score);
+        s->hw_scores[s->homeworkCount] = score;
+        s->homeworkCount++;
+    } else {
+        printf("Cannot add more homework scores. Maximum reached.\n");
+    }
+}
+
+void addProjectScore(student *s, double score) {
+    if (s->projectCount < MAX_PROJECTS) {
+        s->project_scores[s->projectCount] = score;
+        s->projectCount++;
+    } else {
+        printf("Cannot add more project scores. Maximum reached.\n");
+    }
 }

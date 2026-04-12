@@ -1,11 +1,17 @@
 #include "course.h"
 #include "gradebook.h"
 #include <string.h>
+#include <stdio.h>
 
-void addCourse(gradebook *gb, char *courseName) {
-    // Placeholder for adding a course to the gradebook
-    gb = gb;
-    courseName = courseName;    
+course addCourse(){
+    course c;
+    printf("Creating a new course...\n");
+    printf("Enter course name: ");
+    scanf(" %49[^\n]", c.course_name);
+
+    initGradebook(&c.gradebook);
+
+    return c;
 }
 
 void setCourseName(course *c, char *courseName) {

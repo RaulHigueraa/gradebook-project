@@ -10,8 +10,8 @@ typedef struct{
 
 }course;
 
-void addCourse(gradebook *gb, char *courseName);
 void setCourseName(course *c, char *courseName);
 char *getCourseName(course *c);
+course addCourse();
 
 #endif

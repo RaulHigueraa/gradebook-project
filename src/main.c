@@ -2,11 +2,13 @@
 #include "student.h"
 #include "gradebook.h"
 #include "course.h"
+#include "system.h"
 
 /* 
-1. Add a course(s) to the gradebook - can change later to add more courses,
-   but for now we can just have one course in the gradebook to keep it simple.
+1. Add a course(s) to the system - can change later to add more courses,
+   but for now we can just have one course in the system to keep it simple.
    We can always expand later if we want to support multiple courses.
+      - creates a gradebook for that course
 2. Create a student
 3. Add student to a course
 4. Record grades for a student for that course
@@ -23,6 +25,13 @@
 */
 
 int main() {
+   printf("Welcome to the gradebook program!\n");
+   System sys;
+   initSystem(&sys);
+   systemMenu(&sys);
+
+
+   /*
 
    printf("Gradebook program end\n");
    course c;
@@ -34,6 +43,96 @@ int main() {
 
    student s = addStudent();
    addStudentToGradebook(&gb, s);
-   
+*/ 
+/*
+   printf("Welcome to the gradebook program!\n");
+   System sys;
+   initSystem(&sys);
+   int choice; 
+   //initSystem(&sys);
+
+   do{
+ 
+   printf("System Menu:\n");
+   printf("1. Add course to system\n");
+   printf("2. Print list of courses in system\n");
+   printf("3. Choose a course to manage\n");
+   printf("4. Exit\n");
+   scanf("%d", &choice);
+
+ 
+      switch(choice){
+         case 1: {
+            printf("1. Adding a course to system\n");
+            addCoursetoSystem(&sys, addCourse());
+            break;
+         }
+         case 2: {
+            printf("List of courses in system:\n");
+            printListofCoursesInSystem(&sys);
+            break;
+         }
+         case 3: {
+            printf("Choose a course to manage:\n");
+            int course_num = selectCourse(&sys);
+            if (course_num == -1){
+               break;
+            }
+            // choosing the course to manage
+            course *curr_course = &sys.courses[course_num];
+            //initGradebook(&curr_course->gradebook);
+            gradebook *gb = &curr_course->gradebook;
+            do{
+               printf("Course Management Menu:\n");
+               printf("1. Add student\n");
+               printf("2. Print list of students in course\n");
+               printf("3. Manage Gradebook\n");
+               printf("0. Exit Course Management Menu..\n");
+               scanf("%d", &choice);
+
+               switch(choice){
+                  case 1: {
+                     // ADD STUDENT
+                     student newStudent = addStudent();
+                     addStudentToGradebook(gb, newStudent);
+                     break;
+                  }
+                  case 2: {
+                     // PRINT LIST OF STUDENTS IN COURSE
+                     printf("List of students in course:\n");
+                     printListofStudentsInCourse(gb);
+                     break;
+                  }
+                  case 3: {
+                     // MANAGE GRADEBOOK
+                     // - accesses new menu
+                     //   -enter homework scores, exam scores, project scores
+                     //   - get avg of 
+                     // Support adding x, finding findStudent(), updating updateStudent()->what field?, deleting-> deleteStudent(), and listing students
+                     break;
+                  }
+                  default:
+                     printf("Invalid choice. Please try again.\n");
+               }
+
+            }while(choice != 0);
+
+            printf("Exiting course managment menu.. going back to main menu");
+            break;
+         }
+         case 4:
+            printf("Exiting program...\n");
+            printf("Goodbye!\n");
+            break;
+
+         default:
+            printf("Invalid choice. Please try again.\n");
+      }
+
+   }while(choice !=4);
+
+   printf("Gradebook program end\n");
+
+   */
     
 }
