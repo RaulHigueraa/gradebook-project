@@ -29,47 +29,5 @@ int main(){
    printf("Welcome to the gradebook program!\n");
    System sys;
    systemMenu(&sys);
-
-   // MELANIES CODE
-   
-   /* int find(//array name, int a){
-        int ID = a;
-        char grade;
-        //search for id in array
-        for(int i=0; i<arraysize; i++){
-           
-        }
-        //get grade that corressponds to the id enterd
-                grade =;
-        //display id number and student grade
-        printf("-----------------Student Infromation------------------------");
-        printf("Student ID: %d\tGrade: %s",ID, grade);
-
-        }*/
-   /*updated version 
-     void  findstudent(//array name, //int s){
-        
-        int idnum;
-        //ask user for students id
-        printf("Enter the students id number: ");
-        scanf("%10d",&idnum);
-        //search for id in array
-        for (int i=0; i<s;i++);{
-                if (student[i].id == idnum) 
-                {
-                        printf("Student found.\n");
-                        //display students current info
-                        printf("-----------------Student Infromation------------------------\n");
-                        printf("Student Name: %s\tID: %d\tGrade: %c",student[i].name student[i].id, student[i].grade);
-                }
-                else{ 
-                printf("Student not found..."); 
-                }
-         
-        }
-         
-        }
- 
-   */
     
 }
