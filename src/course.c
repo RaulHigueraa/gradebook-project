@@ -31,11 +31,14 @@ void findstudent(){
         scanf("%[^\n]s",subject);
         
         //first check if course exsits 
-        if(subjet== )
+      for (int i=0; i<//course array len; i++)
+      {
+        if(subjet== course[i]. )
             print("Course found...)"    
         else 
             printf("Course not found... returning...");
             return;
+      }
        
     
         //ask user for students id(key)
