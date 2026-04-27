@@ -28,7 +28,7 @@ void findstudent(){
         int key;
         //ask for course name to search for student in
         printf("Enter the course you want to look for a student in: ");
-        scanf("%[^\n]s",subject);
+        scanf("%[^\n]s",&subject);
         
         //first check if course exsits 
         // if it does ask for id, if it doesn't return to main menu
@@ -54,8 +54,10 @@ void findstudent(){
                         //display students current info
                         printf("-----------------Student Infromation------------------------\n");
                         printf("Student Name: %s\n",student[i].name);
-                        print("ID: %d\n",student[i].id);
-                        printf("Homework grade: %f", student[i].);
+                        print("ID: %d\n",student[i].id_number);
+                        printf("Homework grade: %f", student[i].hw_scores);
+                        print("Exam grade: %f", student[i].exam_scores);
+                        printf("Project grade: %f\n",student[i].project_scores);
                     
                 }
                 else
