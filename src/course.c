@@ -31,17 +31,16 @@ void findstudent(){
         scanf("%[^\n]s",subject);
         
         //first check if course exsits 
+        // if it does ask for id, if it doesn't return to main menu
       for (int i=0; i<//course array len; i++)
       {
-        if(subjet== course[i]. )
+        if(subjet == course[i].course_name)
             print("Course found...)"    
         else 
             printf("Course not found... returning...");
             return;
       }
-       
-    
-        //ask user for students id(key)
+        //asking user for students id(key)
         // used id for key incase their are students whith same name or name gets missspelled
         int key;
         printf("Enter the students id number: ");
