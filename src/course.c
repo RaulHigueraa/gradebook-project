@@ -46,20 +46,22 @@ void findstudent(){
         printf("Enter the students id number: ");
         scanf("%10d",&key);
         //access course enter and look for student in course 
-       
-        
-        for (int i=0; i<s;i++);
+        for (int i=0; i<//student array len;i++);
           {
-                if (student[i].id == idnum) 
+                if (student[i].id == key) 
                 {
                         printf("Student found.\n");
                         //display students current info
                         printf("-----------------Student Infromation------------------------\n");
-                        printf("Student Name: %s\tID: %d\tGrade: %c",student[i].name student[i].id, student[i].grade);
+                        printf("Student Name: %s\n",student[i].name);
+                        print("ID: %d\n",student[i].id);
+                        printf("Homework grade: %f", student[i].);
+                    
                 }
                 else
                 { 
                 printf("Student not found..."); 
+                return;
                 }
          
          }
