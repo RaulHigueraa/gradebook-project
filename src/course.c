@@ -48,7 +48,7 @@ void findstudent(){
         //access course and look for student in course 
         for (int i=0; i<//student array len;i++);
           {
-                if (c->student[i].id_num == key) 
+                if (student[i].id_num == key) 
                 {
                         printf("Student found.\n");
                         //display students current info
