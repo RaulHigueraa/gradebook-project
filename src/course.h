@@ -13,5 +13,7 @@ typedef struct{
 void setCourseName(course *c, char *courseName);
 char *getCourseName(course *c);
 course addCourse();
+//declaring findstudent to use in course.c 
+//void findstudent (course *course, int courseCount);
 
 #endif
