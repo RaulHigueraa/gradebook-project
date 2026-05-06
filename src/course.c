@@ -24,6 +24,8 @@ char *getCourseName(course *c) {
     // Placeholder for getting the course name
     return c->course_name;
 }
+
+/*
 void findstudent(course *course, int courseCount){
         //course *course is a pointer to course structure
         // the * means its a pointer (points to something in an array)
@@ -145,3 +147,4 @@ void findstudent(course *course, int courseCount){
 
     printf("Student not found.\n");
 }
+*/

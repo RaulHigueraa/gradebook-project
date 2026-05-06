@@ -6,7 +6,7 @@
 void addCoursetoSystem(System *sys, course c){
     // Before inserting, check if we have enough capacity
     if (sys->courseCount == sys->capacity) {
-        printf("no memory left\n");
+        //printf("no memory left\n");
         sys->capacity *= 2; // allocating new array with bigger capacity 2x
         sys->courses = realloc(sys->courses, sizeof(course) * sys->capacity); // copy the content from the current array to the new one
 
@@ -55,14 +55,14 @@ void systemMenu(System *sys){
    int choice; 
 
    do{
-   printf("------------------------------------\n");
+   printf("\n------------------------------------\n");
    printf("System Menu:\n");
    printf("1. Add course to system\n");
    printf("2. Print list of courses in system\n");
    printf("3. Choose a course to manage\n");
    //printf("4. Find a student in Course\n");
    printf("4. Exit\n");
-   printf("------------------------------------\n");
+   printf("\n------------------------------------\n");
    scanf("%d", &choice);
 
  
@@ -115,15 +115,16 @@ void courseMenu(course *c){
     int choice;
  
             do{
-               printf("------------------------------------\n");
+               printf("\n------------------------------------\n");
                printf("Course Management Menu:\n");
                printf("1. Add student\n");
                printf("2. Print list of students in course\n");
                printf("3. Manage Gradebook\n");
+               printf("4. Find Student by ID\n");
                printf("5. Update student name\n");
                printf("6. Manage student's scores\n");
                printf("0. Exit Course Management Menu..\n");
-               printf("------------------------------------\n");
+               printf("\n------------------------------------\n");
                scanf("%d", &choice);
 
                switch(choice){
@@ -155,7 +156,7 @@ void courseMenu(course *c){
                     }
                     // MELANIE'S CODE
                    case 4: {
-                        printf("Case 4 put here");
+                        
                         break;
                    }
                    case 5: {
@@ -180,7 +181,7 @@ void courseMenu(course *c){
 void studentMenu(student *s){
     int choice;
     do{
-        printf("------------------------------------\n");
+        printf("\n------------------------------------\n");
         printf("Student : %s\n", s->name);
         printf("1. Add homework score\n");
         printf("2. Add exam score\n");
@@ -188,7 +189,7 @@ void studentMenu(student *s){
         printf("4. Get average\n");
         printf("5. Print All Scores of Student: %s\n", s->name);
         printf("0. Return back to Course Management Menu:\n");
-        printf("------------------------------------\n");
+        printf("\n------------------------------------\n");
         scanf("%d", &choice);
 
         switch(choice){
