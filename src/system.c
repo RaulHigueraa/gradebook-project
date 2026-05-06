@@ -60,7 +60,9 @@ void systemMenu(System *sys){
    printf("1. Add course to system\n");
    printf("2. Print list of courses in system\n");
    printf("3. Choose a course to manage\n");
-   //printf("4. Find a student in Course\n");
+   printf("4. Find a student in Course\n");
+   printf("5. Delete a student\n");
+   printf("6. Exit\n");
    printf("4. Exit\n");
    printf("\n------------------------------------\n");
    scanf("%d", &choice);
@@ -90,7 +92,21 @@ void systemMenu(System *sys){
             }
             break;
          }
-         case 4:
+        case 4: {
+            
+        }
+        case 5: {
+            // ask the user which student to delete
+            int idx = selectStudent(&c->gradebook);
+    
+            // check to see if the valid index, delete the student
+            if (idx >= 0) {
+                deleteStudentFromGradebook(&c->gradebook, idx);
+            }
+            break;
+        }
+
+         case 6:
             printf("Exiting program...\n");
             printf("Goodbye!\n");
             break;

@@ -23,3 +23,5 @@ void managingScores(gradebook *gb);
 
 
 #endif
+void deleteStudentFromGradebook(gradebook *gb, int index);
+#endif
