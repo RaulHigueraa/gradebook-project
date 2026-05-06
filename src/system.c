@@ -60,6 +60,7 @@ void systemMenu(System *sys){
    printf("1. Add course to system\n");
    printf("2. Print list of courses in system\n");
    printf("3. Choose a course to manage\n");
+   //printf("4. Find a student in Course\n");
    printf("4. Exit\n");
    scanf("%d", &choice);
 
@@ -90,7 +91,12 @@ void systemMenu(System *sys){
             printf("Exiting program...\n");
             printf("Goodbye!\n");
             break;
-
+          /*case 4:
+          {
+              findstudent(sys->courses, sys->courseCount);
+                break;
+          }
+          */
          default:
             printf("Invalid choice. Please try again.\n");
       }
