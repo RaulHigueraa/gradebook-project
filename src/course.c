@@ -23,8 +23,13 @@ char *getCourseName(course *c) {
     // Placeholder for getting the course name
     return c->course_name;
 }
-void findstudent(){
-        char subject[50];
+void findstudent(course *course, int courseCount){
+        //course *course is a pointer to course structure
+        // the * means its a pointer (points to something in an array)
+        //without declaring first, findstudent wont know which course to search through
+        //int courseCount tells us how big the array of holding all the courses is
+        char subject[51];
+        int courseIndex=-1;
         //found will keep track on whether course is found 
         //found = 0 means course was not found and if found = 1 course was found in array
         int found = 0;
@@ -32,7 +37,7 @@ void findstudent(){
         int key;
         //ask for course name to search for student in
         printf("Enter the course you want to look for a student in: ");
-        scanf("%%49\n",subject);
+        scanf("%49[^\n]",subject);
         
         //first check if course exsits 
         // if it does ask for id, if it doesn't return to main menu
@@ -40,12 +45,13 @@ void findstudent(){
       for (int i=0; i<courseCount; i++)
       {
         if(strcmp (subject, course[i].course_name)==0)
-            printf("Course found...)";
+            printf("Course found...");
             found = 1;
+            courseIndex=i;
       }
       if(!found)
       {
-          printf("Course was not found...\n")
+          printf("Course was not found...\n");
           return;
       }
     
@@ -55,8 +61,8 @@ void findstudent(){
         scanf("%d",&key);
         
         //access course and look for student in course
-        gradebook *gb = &coursescourseIndex.gradebook;
-        for (int i=0; i<gb->studentCount; i++);
+        gradebook *gb = &course[courseIndex].gradebook;
+        for (int i=0; i< gb->studentCount; i++)
           {
                 if (gb->students[i].id_num == key) 
                 {
@@ -67,23 +73,25 @@ void findstudent(){
                         printf("Student Name: %s\n",gb->students[i].name);
                         printf("ID: %d\n", gb->students[i].id_number);
                         
-                        //use for loop to display scores for each hw, exam, and projects
+                        //use for loop to display student's scores for each hw, exam, and projects
                         printf("Homework scores: \n");
-                        for(int a=0; a<gb->students[i].homeworkCount; a++)
+                        for(int a=0; a< gb->students[i].homeworkCount; a++ )
                         {
                             printf("%f\n", gb->students[i].hw_scores[a] );
                         }
                         
                         printf("Exam Scores: \n"); 
-                        for(int b =0; b<gb->studnets[i].examCount; b++)
+                        for(int b =0; b< gb->studnets[i].examCount; b++ )
                         {
-                            print("%f\n", gb->students[i].exam_scores[b]);
+                            printf("%f\n", gb->students[i].exam_scores[b]);
                         }
                         printf("Project scores: \n");
-                        for(int x = 0; x<gb->students[i].project_scores; x++){
-                        printf("%f\n",gb->students[i].project_scores[x]);}
-                    
-                        return;
+                        for(int x = 0; x<gb->students[i].project_scores; x++ )
+                        {
+                            printf("%f\n",gb->students[i].project_scores[x]);
+                        }
+                        //exiting 
+                        break;
                     
                 }
                 
@@ -91,4 +99,5 @@ void findstudent(){
          }
          //line below wont print if student is found b/c of the return statment in the if , print statment is controlled
          printf("Student with ID: %d was not found...",key);
+         return;
         }
