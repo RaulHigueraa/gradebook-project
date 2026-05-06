@@ -54,7 +54,6 @@ int selectStudent(gradebook *gb){
         return -1;
     }
     return choice - 1; 
-
 }
 
 // KIMBERLY'S CODE *** 
@@ -246,4 +245,21 @@ void deleteStudentFromGradebook(gradebook *gb, int IDnumber) {
     gb->studentCount--;
 
     printf("Student was successfully deleted.\n");
+}
+
+student* findStudentByID(gradebook *gb){
+    int id;
+    printf("Enter Student ID: ");
+    scanf("%d", &id);
+    for(int i = 0; i < gb->studentCount; i++){
+        if(gb->students[i].id_number == id){
+            printf("Student: %s (ID: %d) found in gradebook.\n", 
+            gb->students[i].name, 
+            gb->students[i].id_number);
+            return &gb->students[i];
+        }
+    }
+        printf("Student not found.\n");
+        return NULL; 
+    
 }

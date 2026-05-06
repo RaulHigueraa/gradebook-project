@@ -18,10 +18,7 @@ void initGradebook(gradebook *gb);
 int selectStudent(gradebook *gb);
 void updateStudentInGradebook(gradebook *gb);
 void managingScores(gradebook *gb);
-
-
-
-
-#endif
 void deleteStudentFromGradebook(gradebook *gb, int index);
+student* findStudentByID(gradebook *gb);
+
 #endif
