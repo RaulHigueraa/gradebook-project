@@ -8,6 +8,7 @@ course addCourse(){
     printf("Creating a new course...\n");
     printf("Enter course name: ");
     scanf(" %49[^\n]", c.course_name);
+    printf("________________________________\n");
 
     initGradebook(&c.gradebook);
 

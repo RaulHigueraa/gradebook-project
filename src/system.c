@@ -55,18 +55,21 @@ void systemMenu(System *sys){
    int choice; 
 
    do{
- 
+   printf("------------------------------------\n");
    printf("System Menu:\n");
    printf("1. Add course to system\n");
    printf("2. Print list of courses in system\n");
    printf("3. Choose a course to manage\n");
    printf("4. Exit\n");
+   printf("------------------------------------\n");
    scanf("%d", &choice);
 
  
       switch(choice){
          case 1: {
+            printf("________________________________\n");
             printf("1. Adding a course to system\n");
+            printf("________________________________\n");
             addCoursetoSystem(sys, addCourse());
             break;
          }
@@ -106,11 +109,15 @@ void courseMenu(course *c){
     int choice;
  
             do{
+               printf("------------------------------------\n");
                printf("Course Management Menu:\n");
                printf("1. Add student\n");
                printf("2. Print list of students in course\n");
                printf("3. Manage Gradebook\n");
+               printf("5. Update student name\n");
+               printf("6. Manage student's scores\n");
                printf("0. Exit Course Management Menu..\n");
+               printf("------------------------------------\n");
                scanf("%d", &choice);
 
                switch(choice){
@@ -139,11 +146,21 @@ void courseMenu(course *c){
                         studentMenu(&c->gradebook.students[student_idx]);
                      }
                      break;
+                    }
+                    // MELANIE'S CODE
                    case 4: {
                         printf("Case 4 put here");
                         break;
                    }
-                  }
+                   case 5: {
+                        updateStudentInGradebook(&c->gradebook);
+                        break;
+                   }
+                   case 6: {
+                        managingScores(&c->gradebook);
+                        break;
+                   }
+                
                   default:
                      printf("Invalid choice. Please try again.\n");
                }
@@ -157,11 +174,15 @@ void courseMenu(course *c){
 void studentMenu(student *s){
     int choice;
     do{
+        printf("------------------------------------\n");
         printf("Student : %s\n", s->name);
         printf("1. Add homework score\n");
         printf("2. Add exam score\n");
         printf("3. Add project score\n");
         printf("4. Get average\n");
+        printf("5. Print All Scores of Student: %s\n", s->name);
+        printf("0. Return back to Course Management Menu:\n");
+        printf("------------------------------------\n");
         scanf("%d", &choice);
 
         switch(choice){
@@ -170,6 +191,18 @@ void studentMenu(student *s){
                 listHomeworkScores(s);
                 break;
             case 2:
+                addExamScore(s);
+                listExamScores(s);
+                break;
+            case 3:
+                addProjectScore(s);
+                listProjectScores(s);
+                break;
+            case 4:
+                break;
+            case 5:
+                //printf("examCount=%d, hwCount=%d, projCount=%d\n", s->examCount, s->homeworkCount, s->projectCount);
+                printAllScores(s);
                 break;
 
         }

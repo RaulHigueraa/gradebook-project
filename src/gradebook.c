@@ -5,7 +5,7 @@
 
 void addStudentToGradebook(gradebook *gb, student s){
         if (gb->studentCount == gb->capacity) {
-        printf("no memory left\n");
+        // printf("no memory left\n");
         gb->capacity *= 2; // allocating new array with bigger capacity 2x
         gb->students = realloc(gb->students, sizeof(student) * gb->capacity); // copy the content from the current array to the new one
 
@@ -56,3 +56,177 @@ int selectStudent(gradebook *gb){
     return choice - 1; 
 
 }
+
+// KIMBERLY'S CODE *** 
+
+/* ADD YOUR UPDATE FUNCTION HERE */
+void updateStudentInGradebook(gradebook *gb){
+
+    int index = selectStudent(gb);
+
+    if(index == -1){
+        return;
+    }
+
+    int choice;
+
+    printf("What would you like to update?\n");
+    printf("1. Student Name\n");
+    printf("2. Student ID\n");
+    scanf("%d", &choice);
+
+    if(choice == 1){
+
+        printf("Enter new student name: ");
+        scanf(" %49[^\n]", gb->students[index].name);
+
+        printf("Student name updated successfully.\n");
+    }
+
+    else if(choice == 2){
+
+        printf("Enter new student ID: ");
+        scanf("%d", &gb->students[index].id_number);
+
+        printf("Student ID updated successfully.\n");
+    }
+
+    else{
+        printf("Invalid option.\n");
+    }
+}
+
+
+void managingScores(gradebook *gb){
+
+    int index = selectStudent(gb);
+
+    if(index == -1){
+        return;
+    }
+
+    int choice;
+    printf("------------------------------------\n");
+    printf("What would you like to update?\n");
+    printf("1. Homework Score\n");
+    printf("2. Exam Score\n");
+    printf("3. Project Score\n");
+    printf("------------------------------------\n");
+    scanf("%d", &choice);
+
+    if(choice == 1){
+
+        int hwIndex;
+        double newScore;
+
+        if(gb->students[index].homeworkCount == 0){
+            printf("No homework scores available.\n");
+            return;
+        }
+
+        printf("Current Homework Scores:\n");
+
+        for(int i = 0; i < gb->students[index].homeworkCount; i++){
+
+            printf("%d. %f\n",
+            i + 1,
+            gb->students[index].hw_scores[i]);
+        }
+
+        printf("Which homework score number do you want to update? ");
+        scanf("%d", &hwIndex);
+
+        if(hwIndex < 1 ||
+           hwIndex > gb->students[index].homeworkCount){
+
+            printf("Invalid homework selection.\n");
+            return;
+        }
+
+        printf("Enter new homework score: ");
+        scanf("%lf", &newScore);
+
+        gb->students[index].hw_scores[hwIndex - 1] = newScore;
+
+        printf("Homework score updated successfully.\n");
+    }
+
+    else if(choice == 2){
+
+        int examIndex;
+        double newScore;
+
+        if(gb->students[index].examCount == 0){
+            printf("No exam scores available.\n");
+            return;
+        }
+
+        printf("Current Exam Scores:\n");
+
+        for(int i = 0; i < gb->students[index].examCount; i++){
+
+            printf("%d. %f\n",
+            i + 1,
+            gb->students[index].exam_scores[i]);
+        }
+
+        printf("Enter exam number to update: ");
+        scanf("%d", &examIndex);
+
+        if(examIndex < 1 ||
+           examIndex > gb->students[index].examCount){
+
+            printf("Invalid exam selection.\n");
+            return;
+        }
+
+        printf("Enter new exam score: ");
+        scanf("%lf", &newScore);
+
+        gb->students[index].exam_scores[examIndex - 1] = newScore;
+
+        printf("Exam score updated successfully.\n");
+    }
+
+    else if(choice == 3){
+
+        int projectIndex;
+        double newScore;
+
+        if(gb->students[index].projectCount == 0){
+            printf("No project scores available.\n");
+            return;
+        }
+
+        printf("Current Project Scores:\n");
+
+        for(int i = 0; i < gb->students[index].projectCount; i++){
+
+            printf("%d. %f\n",
+            i + 1,
+            gb->students[index].project_scores[i]);
+        }
+
+        printf("Enter project number to update: ");
+        scanf("%d", &projectIndex);
+
+        if(projectIndex < 1 ||
+           projectIndex > gb->students[index].projectCount){
+
+            printf("Invalid project selection.\n");
+            return;
+        }
+
+        printf("Enter new project score: ");
+        scanf("%lf", &newScore);
+
+        gb->students[index].project_scores[projectIndex - 1] = newScore;
+
+        printf("Project score updated successfully.\n");
+    }
+
+    else{
+        printf("Invalid option.\n");
+    }
+}
+

@@ -8,7 +8,7 @@
 // - If we want to support more than these limits, we can always increase the constants and recompile
 // - Ingrid
 
-#define MAX_HW 10
+#define MAX_HW 8
 #define MAX_EXAMS 5
 #define MAX_PROJECTS 5
 
@@ -31,10 +31,17 @@ typedef struct{
 
 
 }student;
+
 student addStudent(void);
-void addExamScore(student *s, double score);
+void addExamScore(student *s);
 void addHomeworkScore(student *s);
-void addProjectScore(student *s, double score);
+void addProjectScore(student *s);
 void listHomeworkScores(student *s);
+void updateStudentName(student *s);
+void updateStudentID(student *s);
+void listProjectScores(student *s);
+void listExamScores(student *s);
+void printAllScores(student *s);
+
 
 #endif

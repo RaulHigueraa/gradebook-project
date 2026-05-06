@@ -16,4 +16,10 @@ void addStudentToGradebook(gradebook *gb, student s);
 void printListofStudentsInCourse(gradebook *gb);
 void initGradebook(gradebook *gb);
 int selectStudent(gradebook *gb);
+void updateStudentInGradebook(gradebook *gb);
+void managingScores(gradebook *gb);
+
+
+
+
 #endif

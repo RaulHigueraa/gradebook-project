@@ -25,8 +25,10 @@
 */
 
 int main(){
-
+   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
    printf("Welcome to the gradebook program!\n");
+   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
    System sys;
    systemMenu(&sys);
 
