@@ -56,3 +56,22 @@ int selectStudent(gradebook *gb){
     return choice - 1; 
 
 }
+
+void deleteStudentFromGradebook(gradebook *gb, int IDnumber) {
+    // this validates the ID number given and checks if it exists amongst the student list
+    if (index < 0 || index >= gb->studentCount) {
+        printf("Invalid student ID.\n");
+        return;
+    }
+
+    // this shifts all the students to the left by one to account for whichever entry is deleted
+    for (int i = index; i < gb->studentCount - 1; i++) {
+        gb->students[i] = gb->students[i + 1];
+    }
+        
+    // this changes the student count minus 1 after a student is deleted
+    gb->studentCount--;
+
+    printf("Student was successfully deleted.\n");
+}
+
