@@ -101,3 +101,46 @@ void findstudent(course *course, int courseCount){
          printf("Student with ID: %d was not found...",key);
          return;
         }
+    // Updating student course
+    void updateStudent(course courses[], int courseCount){
+        char subject[50];
+        int key;
+        int courseIndex = -1;
+
+        printf("Enter the course you want to update a student in: ");
+        scanf(" %49[^\n]", subject);
+
+        for (int i = 0; i < courseCount; i++) {
+        if (strcmp(subject, courses[i].course_name) == 0) {
+            courseIndex = i;
+            break;
+        }
+    }
+
+    if (courseIndex == -1) {
+        printf("Course not found.\n");
+        return;
+    }
+
+    printf("Enter the student's ID number: ");
+    scanf("%d", &key);
+
+    gradebook *gb = &courses[courseIndex].gradebook;
+
+    for (int i = 0; i < gb->studentCount; i++) {
+
+        if (gb->students[i].id_num == key) {
+
+            printf("Student found.\n");
+
+            printf("Enter new name: ");
+            scanf(" %49[^\n]", gb->students[i].name);
+
+            printf("Student updated successfully.\n");
+
+            return;
+        }
+    }
+
+    printf("Student not found.\n");
+}
